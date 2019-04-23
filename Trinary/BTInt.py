@@ -78,10 +78,27 @@ class btrit:
         return self.state is not other.state
     def __lt__(self,other):
         """Less than operator"""
+        selftemp=btrit(self.state)
+        selftemp.ztrim()
+        othertemp=btrit(other.state)
+        othertemp.ztrim()
+        if len(selftemp.state)<len(othertemp.state):
+            return True
+        elif len(othertemp.state)<len(selftemp.state):
+            return False
+        else:
+            for t in range(len(selftemp.state)):
+                order={'t':0,'0':1,'1':2}
+                if order[othertemp.state[t]]>order[selftemp.state[t]]:
+                    return True
+            return False
     def __le__(self,other):
         """Less than or equal to operator"""
+        return ((self.state is other.state) | (self.state<other.state))
     def __gt__(self,other):
         """Greater than operator"""
+        return not (self.state<other.state)
     def __ge__(self,other):
         """Greater than or equal to operator"""
+        return not (self.state<=other.state)
             
