@@ -1,2 +1,3 @@
 # PyTrinary
-Hmm
+Three valued systems implemented in Python
+
