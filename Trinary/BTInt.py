@@ -47,6 +47,26 @@ class btrit:
                     break
             return self.state
     #-------------------------------------------------------------------------
+    def ztrim(self):
+        """Trims leading 0s"""
+        if type(self) is not btrit:
+            raise TypeError("Input must be of type btrit")
+        else:
+            for t in self.state:
+                if len(self.state) is 1:
+                    break
+                else:
+                    if t is '0':
+                        temp=''
+                        for tmp in range(len(self.state)-1):
+                            temp=temp+self.state[tmp+1]
+                        self.state=temp
+                    else:
+                        break
+        
+                        
+                
+    #-------------------------------------------------------------------------
     def __eq__(self,other):
         """Equality operator"""
         #works because python ignores leading '0's in str in tests
@@ -58,18 +78,10 @@ class btrit:
         return self.state is not other.state
     def __lt__(self,other):
         """Less than operator"""
-        #see comments in __eq__
-        return self.state < other.state
     def __le__(self,other):
         """Less than or equal to operator"""
-        #see comments in __eq__
-        return self.state <= other.state 
     def __gt__(self,other):
         """Greater than operator"""
-        #see comments in __eq__
-        return self.state > other.state
     def __ge__(self,other):
         """Greater than or equal to operator"""
-        #see comments in __eq__
-        return self.state >= other.state
             
