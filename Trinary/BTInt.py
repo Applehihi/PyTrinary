@@ -97,8 +97,8 @@ class btrit:
         return ((self.state is other.state) | (self.state<other.state))
     def __gt__(self,other):
         """Greater than operator"""
-        return not (self.state<other.state)
+        return not (self.state<=other.state)
     def __ge__(self,other):
         """Greater than or equal to operator"""
-        return not (self.state<=other.state)
+        return not (self.state<other.state)
             
