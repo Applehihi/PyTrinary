@@ -10,6 +10,9 @@ class btrit:
         for i in self.state: #exception if user does not input valid trit state
             if i not in ['1','0','t']:
                 self.state=None
+    def __repr__(self):
+        """To allow btrit type object to return value when printed or referred to in console"""
+        return self.state
     #-------------------------------------------------------------------------
     def __setattr__(self,key,value):
         """Checks if changed trit state is valid"""
@@ -101,4 +104,5 @@ class btrit:
     def __ge__(self,other):
         """Greater than or equal to operator"""
         return not (self.state<other.state)
-            
+    #-------------------------------------------------------------------------
+ 
